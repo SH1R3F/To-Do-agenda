@@ -1,0 +1,52 @@
+html, body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+body{
+  background: url('http://wallpapercrafter.com/uploads/posts/3921-___bullet-journal-agenda-coffee-and-journal-hd.jpg') top center no-repeat;
+  background-size: calc(100% + 150px) 100%;
+  background-position: -150px 0;
+}
+.container{
+    max-width: 92%;
+}
+@media (min-width: 576px){
+    .container{
+        max-width: 540px;
+    }
+}
+@media (min-width: 768px){
+    .container{
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px){
+    .container{
+        max-width: 960px;
+    }
+}
+@media (min-width: 1200px){
+    .container{
+        max-width: 1140px;
+    }
+}
+div.form-note{
+  input[type=text],
+  input[type=email],
+  input[type=password]{
+    font-size: 22px;
+  }
+  input.form-control, button[type=submit]{
+    &:focus{
+      outline: none;
+      box-shadow: none;
+    }
+  }
+  a.text{
+    text-decoration: none;
+  }
+}
+#registration{
+  display: none;
+}

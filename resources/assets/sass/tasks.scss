@@ -1,0 +1,174 @@
+html{
+    border: 35px solid #d69639;
+    min-height: 100%;
+}
+body{
+    min-height: 100%;
+    background-color: #f3b358;
+}
+.row{
+    .section{
+        border: 2px solid #efa439;
+        height: calc(50vh - 35px);
+        max-width: 50%;
+        text-align: center;
+        padding: 0;
+        overflow-y: auto;
+        overflow-x: hidden !important;
+        width: 100%;
+        .row{
+            padding: 0 30px;
+            min-height: 119px;
+        }
+    }
+}
+@media (max-width: 992px){
+    .row{
+        .section{
+            min-width: 100%;
+        }
+    }
+}
+.sticky-note{
+    &:before{
+        display: none;
+        }
+    &.title:first-of-type{
+        display: inline-block;
+        position: static;
+        margin-top: 20px;
+        background: #ef7887;
+        padding: 5px 27px 0;
+        font-size: 34px;
+        letter-spacing: 1.8px;
+        font-weight: bold;
+        font-family: 'Gochi Hand';
+        text-align: center;
+        margin-bottom: 45px;
+
+        -webkit-transform: rotate(1deg);
+        -o-transform: rotate(1deg);
+        -moz-transform:rotate(1deg);
+    }
+    &.task{
+        margin: auto;
+        padding: 7px 13px;
+        font-size: 24px;
+        position: static;
+        margin-right: 14px;
+        margin-bottom: 25px;
+        line-height: 1.35;
+        $randomDeg: unquote(random(6) + 'deg');
+        &:nth-child(2n+1){
+            -webkit-transform: rotate($randomDeg);
+            -o-transform: rotate($randomDeg);
+            -moz-transform: rotate($randomDeg);
+        }
+        $randomDeg: unquote('-' + random(6) + 'deg');
+        &:nth-child(3n+2){
+            -webkit-transform: rotate($randomDeg);
+            -o-transform: rotate($randomDeg);
+            -moz-transform: rotate($randomDeg);
+        }
+        $randomDeg: unquote(random(6) + 'deg');
+        &:nth-child(5n+3){
+            -webkit-transform: rotate($randomDeg);
+            -o-transform: rotate($randomDeg);
+            -moz-transform: rotate($randomDeg);
+        }
+        $randomDeg: unquote('-' + random(6) + 'deg');
+        &:nth-child(7n+5){
+            -webkit-transform: rotate($randomDeg);
+            -o-transform: rotate($randomDeg);
+            -moz-transform: rotate($randomDeg);
+        }
+    }
+}
+.add-task,
+.delete-task{
+    position: absolute;
+    z-index: 9;
+    bottom: 45px;
+    right: 45px;
+    cursor: pointer;
+    color: #FFF;
+    background: rgba(175, 121, 44, .7);
+    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+    transition: all .3s;
+    i{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 35px;
+    }
+    &:hover{
+        transform: rotate(130deg);
+    }
+}
+.delete-task{
+    left: 45px;
+    &:hover{
+        transform: rotate(180deg);
+    }
+}
+.newTask{
+    display: none;
+    position: absolute !important;
+    z-index: 9999;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 300px;
+    border: 1px solid #CDCDCD;
+    &:before{
+        display: block;
+        z-index: 1;
+        border-color: #EFE8A9 #f3b357 !important;
+    }
+    &.fold:before{
+        border-width: 0 0 321px 300px !important;
+        border-color: #EFE8A9 #f3b357 !important;
+    }
+    .sticky-title{
+        line-height: .88;
+        margin-bottom: 7px;
+        font-size: 25px !important;
+        text-align: center;
+        font-weight: bold;
+        border-bottom: 1px solid #222;
+    }
+    textarea{
+        background: url('/var/www/html/Laravel/todo/public/images/line.png') !important;
+        background-position: 0 30px !important;
+        background-attachment: static;
+        font-size: 22px !important;
+        line-height: 1.30;
+        width: 100%;
+        min-height: 240px;
+        resize: none;
+        border: none;
+        outline: none;
+        padding-left: 20px;
+    }
+    .underneath{
+        position: absolute;
+        bottom: 5px;
+        z-index: 0;
+    }
+    input{
+        background: none;
+        border: none;
+        outline: none;
+    }
+    .add{
+        font-weight: bold;
+        cursor: pointer;
+        &.addDisabled{
+            color: rgba(0, 0, 0, .5);
+            cursor: not-allowed;
+        }
+    }
+}
